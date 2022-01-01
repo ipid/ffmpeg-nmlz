@@ -11,7 +11,7 @@ setup(
     description='',
     entry_points={
         'console_scripts': [
-            'nmlz=ffmpeg_nmlz.main:main',
+            'nmlz=ffmpeg_nmlz.__main__:main',
         ],
     }
 )
