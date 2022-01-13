@@ -83,9 +83,10 @@ def ffmpeg_convert_with_volume_filter(
         '-y',
         '-i', in_path,
         '-map', '0:a:0',
-        '-af', f'volume={volume:.1f}dB',
         '-c:a', format_config.encoder,
     ]
+    if volume > 0.2:
+        params += ['-af', f'volume={volume:.1f}dB']
     if format_config.bitrate is not None:
         params += ['-b:a', format_config.bitrate]
     params.append(out_path)
